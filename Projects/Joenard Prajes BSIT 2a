@@ -1,0 +1,113 @@
+using System;
+
+class JokWeightCalcu
+{
+    static double CalculateTotalWeight(double weight1, double weight2)
+    {
+        return weight1 + weight2;
+    }
+
+    static string CompareWeights(double weight1, double weight2)
+    {
+        if (weight1 > weight2)
+            return "Weight 1 is greater than Weight 2";
+        else if (weight1 < weight2)
+            return "Weight 2 is greater than Weight 1";
+        else
+            return "Weight 1 and Weight 2 are equal";
+    }
+
+    static void Main()
+    {
+        Console.WriteLine("Jok Weight Calculator Program");
+        Console.WriteLine("Hello There");
+
+        double weight1, weight2, totalWeight;
+
+        Console.Write("Enter weight 1: ");
+        weight1 = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Enter weight 2: ");
+        weight2 = Convert.ToDouble(Console.ReadLine());
+
+        totalWeight = CalculateTotalWeight(weight1, weight2);
+        Console.WriteLine("Total weight: " + totalWeight);
+
+        double multipliedWeight = weight1 * weight2;
+        Console.WriteLine("Weight 1 * Weight 2: " + multipliedWeight);
+
+        totalWeight += 10;
+        Console.WriteLine("Total weight after adding 10: " + totalWeight);
+
+        Console.Write("Enter an additional weight: ");
+        double additionalWeight = Convert.ToDouble(Console.ReadLine());
+        totalWeight += additionalWeight;
+        Console.WriteLine("Total weight after adding additional weight: " + totalWeight);
+
+        Console.WriteLine("Formatted Output:\n\tWeight 1: {0}\n\tWeight 2: {1}\n\tTotal Weight: {2}", weight1, weight2, totalWeight);
+
+        string resultString = "Weight 1: " + weight1 + ", Weight 2: " + weight2 + ", Total Weight: " + totalWeight;
+        Console.WriteLine(resultString);
+
+        string interpolatedString = $"Weight 1: {weight1}, Weight 2: {weight2}, Total Weight: {totalWeight}";
+        Console.WriteLine(interpolatedString);
+
+        if (weight1 > weight2)
+            Console.WriteLine("Weight 1 is greater than Weight 2");
+        else if (weight1 < weight2)
+            Console.WriteLine("Weight 2 is greater than Weight 1");
+        else
+            Console.WriteLine("Weight 1 and Weight 2 are equal");
+
+        if (weight1 > 0 && weight2 > 0)
+            Console.WriteLine("Both weights are positive");
+
+        Console.Write("Enter a number (1-3): ");
+        int choice = Convert.ToInt32(Console.ReadLine());
+
+        switch (choice)
+        {
+            case 1:
+                Console.WriteLine("You selected option 1");
+                break;
+            case 2:
+                Console.WriteLine("You selected option 2");
+                break;
+            case 3:
+                Console.WriteLine("You selected option 3");
+                break;
+            default:
+                Console.WriteLine("Invalid choice");
+                break;
+        }
+
+        string weightComparisonResult = CompareWeights(weight1, weight2);
+        Console.WriteLine(weightComparisonResult);
+
+        Console.WriteLine("Printing weights using a for loop:");
+        for (int i = 0; i < 3; i++)
+        {
+            Console.WriteLine($"Weight {i + 1}: {totalWeight}");
+        }
+
+        int counter = 0;
+        Console.WriteLine("Printing weights using a while loop with break and continue:");
+        while (counter < 5)
+        {
+            if (counter == 2)
+            {
+                Console.WriteLine("Skipping iteration 2 using continue");
+                counter++;
+                continue;
+            }
+
+            if (counter == 4)
+            {
+                Console.WriteLine("Breaking the loop at iteration 4 using break");
+                break;
+            }
+
+            Console.WriteLine($"Weight {counter + 1}: {totalWeight}");
+            counter++;
+        }
+    }

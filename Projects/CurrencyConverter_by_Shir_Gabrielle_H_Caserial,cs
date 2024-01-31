@@ -1,0 +1,51 @@
+using System;
+
+class CurrencyConverter
+{
+    static void Main()
+    {
+        // Module 1 - Getting started
+        Console.WriteLine("Welcome to Currency Converter!");
+
+        // Module 2 - Operators and Strings
+        double exchangeRate = 56.40;
+        Console.WriteLine("Enter amount in USD:");
+        double usdAmount = Convert.ToDouble(Console.ReadLine());
+        double convertedAmount = usdAmount * exchangeRate;
+        Console.WriteLine($"Equivalent in PHP: {convertedAmount}");
+
+        // Module 3 - Decision Making
+        Console.WriteLine("Is the amount above $100?");
+        bool isAbove100 = usdAmount > 100;
+        if (isAbove100)
+        {
+            Console.WriteLine("Yes, it's above $100.");
+        }
+        else if (usdAmount == 100)
+        {
+            Console.WriteLine("It's exactly $100.");
+        }
+        else
+        {
+            Console.WriteLine("No, it's below $100.");
+        }
+
+        // Module 4 - Loops
+        Console.WriteLine("Printing numbers from 1 to 5 using for loop:");
+        for (int i = 1; i <= 5; i++)
+        {
+            Console.WriteLine(i);
+        }
+
+        // Module 5 - Methods
+        double ConvertCurrency(double amount, double rate)
+        {
+            return amount * rate;
+        }
+
+        Console.WriteLine("Enter another amount in USD:");
+        double secondAmount = Convert.ToDouble(Console.ReadLine());
+        double result = ConvertCurrency(secondAmount, exchangeRate);
+        Console.WriteLine($"Equivalent in PHP: {result}");
+    }
+}

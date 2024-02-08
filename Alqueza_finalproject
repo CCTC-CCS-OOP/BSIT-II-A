@@ -1,0 +1,296 @@
+using System;
+
+namespace JmAlquezaMenu
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Welcome to my Bistro!");
+
+            Console.WriteLine("Here's Our Menu:");
+
+            string[] menuItems = { "Pizza", "Burger", "Pasta", "Salad", "Drink" };
+            double[] prices = { 70.80, 50.53, 65.90, 25.40, 20 };
+
+            DisplayMenu(menuItems, prices);
+
+            ProcessUserOrder(menuItems, prices);
+
+            DisplayLoopExamples();
+
+            Console.ReadLine();
+        }
+
+        static void DisplayMenu(string[] items, double[] prices)
+        {
+            for (int i = 0; i < items.Length; i++)
+            {
+                Console.WriteLine($"{i + 1}. {items[i]}: ${prices[i]}");
+            }
+        }
+
+        static void ProcessUserOrder(string[] menuItems, double[] prices)
+        {
+            Console.WriteLine("\nEnter Your Order:");
+            Console.Write("Enter the number of the item you want to order: ");
+            int itemNumber = Convert.ToInt32(Console.ReadLine());
+
+            if (itemNumber >= 1 && itemNumber <= menuItems.Length)
+            {
+                Console.Write("Enter the quantity: ");
+                int quantity = Convert.ToInt32(Console.ReadLine());
+
+                int selectedItemIndex = itemNumber - 1;
+                double totalCost = CalculateOrderCost(prices[selectedItemIndex], quantity);
+
+                DisplayOrderDetails(menuItems[selectedItemIndex], quantity, totalCost);
+                ApplyDiscount(totalCost);
+                ProcessPayment();
+            }
+            else
+            {
+                Console.WriteLine("Invalid item number.");
+            }
+        }
+
+        static double CalculateOrderCost(double price, int quantity)
+        {
+            return price * quantity;
+        }
+
+        static void DisplayOrderDetails(string itemName, int quantity, double totalCost)
+        {
+            Console.WriteLine($"\nYou ordered {quantity} {itemName}(s).");
+            Console.WriteLine($"Total cost is: ${totalCost:F2}");
+        }
+
+        static void ApplyDiscount(double totalCost)
+        {
+            if (totalCost >= 20)
+            {
+                Console.WriteLine("You have qualified for a 10% discount!");
+                totalCost = ApplyPercentageDiscount(totalCost, 10);
+                Console.WriteLine($"Discounted total cost is: ${totalCost:F2}");
+            }
+            else if (totalCost >= 15 && totalCost < 20)
+            {
+                Console.WriteLine("You have qualified for a 5% discount!");
+                totalCost = ApplyPercentageDiscount(totalCost, 5);
+                Console.WriteLine($"Discounted total cost is: ${totalCost:F2}");
+            }
+            else
+            {
+                Console.WriteLine("Sorry, no discount available for this order.");
+            }
+        }
+
+        static double ApplyPercentageDiscount(double amount, double percentage)
+        {
+            return amount * (1 - (percentage / 100));
+        }
+
+        static void ProcessPayment()
+        {
+            Console.WriteLine("\nEnter your payment method (cash/card): ");
+            string paymentMethod = (Console.ReadLine());
+
+            if (paymentMethod == "cash" || paymentMethod == "card")
+            {
+                Console.WriteLine($"Payment accepted via {paymentMethod}. Thank you!");
+            }
+            else
+            {
+                Console.WriteLine("Invalid payment method. Please choose cash or card.");
+            }
+        }
+
+        static void DisplayLoopExamples()
+        {
+            Console.WriteLine("\nExample of using for loop:");
+            for (int i = 0; i < 5; i++)
+            {
+                if (i == 2)
+                {
+                    Console.WriteLine("Breaking the loop at iteration 3 using 'break'.");
+                    break;
+                }
+                Console.WriteLine($"Iteration {i + 1}");
+            }
+
+
+
+            Console.WriteLine("\nExample of using while loop:");
+            int j = 0;
+            while (j < 5)
+            {
+                if (j == 2)
+                {
+                    Console.WriteLine("Skipping iteration 3 using 'continue'.");
+                    j++;
+                    continue;
+                }
+                Console.WriteLine($"Iteration {j + 1}");
+                j++;
+            }
+        }
+    }
+}
+
+On Thu, Feb 1, 2024 at 8:29 AM John Michael Alqueza <johnalqueza18@gmail.com> wrote:
+
+
+---------- Forwarded message ---------
+From: John Michael Alqueza <johnalqueza18@gmail.com>
+Date: Wed, Dec 13, 2023 at 11:28 AM
+Subject:
+To: John Michael Alqueza <johnalqueza18@gmail.com>
+
+
+using System;
+
+namespace RestaurantMenu
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Program Structure
+            Console.WriteLine("Welcome to Our Restaurant!");
+
+            // Basic Concepts (Output)
+            Console.WriteLine("Here's Our Menu:");
+
+            // Variables & Data Types
+            string[] menuItems = { "Pizza", "Burger", "Pasta", "Salad", "Drink" };
+            double[] prices = { 12.99, 8.49, 10.99, 6.99, 2.49 };
+
+            // Displaying Menu with Prices using Concatenation and Interpolation
+            DisplayMenu(menuItems, prices);
+
+            // User Order Processing
+            ProcessUserOrder(menuItems, prices);
+
+            // Loop Examples
+            DisplayLoopExamples();
+
+            // Hold console window open
+            Console.ReadLine();
+        }
+
+        // Method to Display Menu
+        static void DisplayMenu(string[] items, double[] prices)
+        {
+            for (int i = 0; i < items.Length; i++)
+            {
+                Console.WriteLine($"{i + 1}. {items[i]}: ${prices[i]}");
+            }
+        }
+
+        // Method for Processing User Order
+        static void ProcessUserOrder(string[] menuItems, double[] prices)
+        {
+            Console.WriteLine("\nEnter Your Order:");
+            Console.Write("Enter the number of the item you want to order: ");
+            int itemNumber = Convert.ToInt32(Console.ReadLine());
+
+            if (itemNumber >= 1 && itemNumber <= menuItems.Length)
+            {
+                Console.Write("Enter the quantity: ");
+                int quantity = Convert.ToInt32(Console.ReadLine());
+
+                int selectedItemIndex = itemNumber - 1;
+                double totalCost = CalculateOrderCost(prices[selectedItemIndex], quantity);
+
+                DisplayOrderDetails(menuItems[selectedItemIndex], quantity, totalCost);
+                ApplyDiscount(totalCost);
+                ProcessPayment();
+            }
+            else
+            {
+                Console.WriteLine("Invalid item number.");
+            }
+        }
+
+        // Method to Calculate Order Cost
+        static double CalculateOrderCost(double price, int quantity)
+        {
+            return price * quantity;
+        }
+
+        // Method to Display Order Details
+        static void DisplayOrderDetails(string itemName, int quantity, double totalCost)
+        {
+            Console.WriteLine($"\nYou ordered {quantity} {itemName}(s).");
+            Console.WriteLine($"Total cost is: ${totalCost:F2}");
+        }
+
+        // Method to Apply Discount based on Total Cost
+        static void ApplyDiscount(double totalCost)
+        {
+            if (totalCost >= 20)
+            {
+                Console.WriteLine("You have qualified for a 10% discount!");
+                totalCost *= 0.9; // Applying a 10% discount
+                Console.WriteLine($"Discounted total cost is: ${totalCost:F2}");
+            }
+            else if (totalCost >= 15 && totalCost < 20)
+            {
+                Console.WriteLine("You have qualified for a 5% discount!");
+                totalCost *= 0.95; // Applying a 5% discount
+                Console.WriteLine($"Discounted total cost is: ${totalCost:F2}");
+            }
+            else
+            {
+                Console.WriteLine("Sorry, no discount available for this order.");
+            }
+        }
+
+        // Method for Payment Processing
+        static void ProcessPayment()
+        {
+            Console.WriteLine("\nEnter your payment method (cash/card): ");
+            string paymentMethod = (Console.ReadLine());
+
+            if (paymentMethod == "cash" || paymentMethod == "card")
+            {
+                Console.WriteLine($"Payment accepted via {paymentMethod}. Thank you!");
+            }
+            else
+            {
+                Console.WriteLine("Invalid payment method. Please choose cash or card.");
+            }
+        }
+
+        // Method to Display Loop Examples
+        static void DisplayLoopExamples()
+        {
+            // for Loop - Example
+            Console.WriteLine("\nExample of using for loop:");
+            for (int i = 0; i < 5; i++)
+            {
+                if (i == 2)
+                {
+                    Console.WriteLine("Breaking the loop at iteration 3 using 'break'.");
+                    break;
+                }
+                Console.WriteLine($"Iteration {i + 1}");
+            }
+
+            // while Loop - Example
+            Console.WriteLine("\nExample of using while loop:");
+            int j = 0;
+            while (j < 5)
+            {
+                if (j == 2)
+                {
+                    Console.WriteLine("Skipping iteration 3 using 'continue'.");
+                    j++;
+                    continue;
+                }
+                Console.WriteLine($"Iteration {j + 1}");
+                j++;
+            }
+        }
+    }
+}

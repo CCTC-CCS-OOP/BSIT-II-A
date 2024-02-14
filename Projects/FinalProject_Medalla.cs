@@ -1,5 +1,5 @@
 using System;
-namespace Projectedoloverio
+namespace ProjectAlvinMedalla
 {
     class Program
     {
@@ -7,9 +7,9 @@ namespace Projectedoloverio
         {
             //Module 1.
             Console.WriteLine("Module 1.");
-            Console.WriteLine("Main pogi Jerald");
+            Console.WriteLine("Main pogi Alvin");
             int x = 5, y = 10;
-            string creator = "Jerald S. Edoloverio";
+            string creator = "Alvin Medalla";
             double z = 2.2;
             char e = 'e';
             bool isTrue = true;
@@ -44,8 +44,8 @@ namespace Projectedoloverio
             Console.WriteLine($"Decremented y: {y}");
 
             // String operations
-            string firstName = "Jerald S.";
-            string lastName = "Edoloverio";
+            string firstName = "Alvin";
+            string lastName = "Medalla";
 
             // Concatenation
             string fullName = firstName + " " + lastName;
